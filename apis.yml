@@ -1,8 +1,28 @@
 aid: vivoo
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/vivoo.png
 name: Vivoo
-description: Vivoo is a company surfaced as a portfolio company of 500-global, techstars and added to
-  the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+description: >-
+  Vivoo is a wellness technology company offering science-backed, at-home urine
+  test strips paired with a mobile app that turns results into personalized nutrition
+  and lifestyle recommendations. Its lineup includes the 8-parameter Vivoo Wellness
+  Test, an at-home UTI test, fertility/ovulation and vaginal pH tests, and a connected
+  Smart Toilet. The direct-to-consumer store runs on Shopify and exposes a native
+  agent-commerce surface: a published llms.txt/agents.md, a Universal Commerce Protocol
+  (UCP) merchant profile at /.well-known/ucp, and a hosted UCP shopping MCP server
+  for agent-driven catalog search, cart, and buyer-approved checkout. Backed by 500
+  Global and Techstars.
 url: https://raw.githubusercontent.com/api-evangelist/vivoo/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -13,10 +33,33 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 10
+  pass: local-v1
 tags:
 - Company
-apis: []
+- Health
+- Wellness
+- Consumer Health
+- Nutrition
+- Diagnostics
+- E-Commerce
+- Agentic Commerce
+- MCP
+apis:
+- name: Vivoo UCP Shopping (MCP)
+  description: >-
+    Hosted Universal Commerce Protocol (UCP) shopping MCP server exposed natively by
+    the Shopify-hosted Vivoo storefront: agent-driven catalog search, cart, and
+    buyer-approved checkout. Checkout requires contemporaneous human buyer approval.
+  humanURL: https://www.vivoo.io/llms.txt
+  baseURL: https://www.vivoo.io/api/ucp/mcp
+  properties:
+  - type: Documentation
+    url: https://ucp.dev/2026-04-08/specification/overview/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -25,3 +68,23 @@ maintainers:
 common:
 - type: Website
   url: https://vivoo.io
+- type: MCPServer
+  url: mcp/vivoo-mcp.yml
+- type: WellKnown
+  url: well-known/vivoo-well-known.yml
+- type: LLMsTxt
+  url: llms/vivoo-llms.txt
+- type: Authentication
+  url: authentication/vivoo-authentication.yml
+- type: OAuthScopes
+  url: scopes/vivoo-scopes.yml
+- type: DomainSecurity
+  url: security/vivoo-domain-security.yml
+- type: Support
+  url: https://vivoo.io/pages/contact
+- type: HelpCenter
+  url: https://vivoo.io/pages/faqs
+- type: TermsOfService
+  url: https://www.vivoo.io/policies/terms-of-service
+- type: PrivacyPolicy
+  url: https://www.vivoo.io/policies/privacy-policy

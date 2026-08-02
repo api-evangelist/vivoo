@@ -1,0 +1,26 @@
+generated: '2026-07-21'
+method: searched
+source: live probe of https://www.vivoo.io/.well-known/
+host: https://www.vivoo.io
+documents:
+- path: /.well-known/ucp
+  status: 200
+  file: vivoo-ucp.json
+  description: Universal Commerce Protocol (UCP) merchant profile — supported versions,
+    service endpoints, capabilities, and payment handlers for agent-driven commerce.
+- path: /.well-known/openid-configuration
+  status: 200
+  file: vivoo-openid-configuration.json
+  description: OpenID Connect discovery for the Shopify Customer Account API (issuer
+    https://shopify.com/authentication/85119664427).
+- path: /.well-known/oauth-authorization-server
+  status: 200
+  file: vivoo-oauth-authorization-server.json
+  description: RFC 8414 OAuth 2.0 Authorization Server Metadata (Shopify Customer Account
+    identity provider).
+- path: /.well-known/security.txt
+  status: 404
+- path: /.well-known/api-catalog
+  status: 404
+- path: /.well-known/ai-plugin.json
+  status: 404

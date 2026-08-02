@@ -1,0 +1,50 @@
+generated: '2026-07-21'
+method: searched
+status: published
+source: https://www.vivoo.io/.well-known/ucp
+server:
+  name: vivoo-ucp-shopping
+  transport: http
+  protocol: mcp
+  url: https://www.vivoo.io/api/ucp/mcp
+  spec: https://ucp.dev/2026-04-08/specification/overview/
+  schema: https://ucp.dev/2026-04-08/services/shopping/mcp.openrpc.json
+  standard: Universal Commerce Protocol (UCP)
+  supported_versions:
+  - '2026-04-08'
+  - '2026-01-23'
+  note: >-
+    Hosted UCP shopping MCP server provided natively by Shopify. tools/list requires
+    a valid UCP agent profile URI (returns error -32001 invalid_profile_url without
+    one), so the tool surface below is transcribed from the merchant's published
+    llms.txt agent flow rather than a live tools/list enumeration. Checkout requires
+    contemporaneous human buyer approval; the endpoint is rate-limited per IP (429).
+capabilities:
+- dev.ucp.shopping.catalog.search
+- dev.ucp.shopping.catalog.lookup
+- dev.ucp.shopping.cart
+- dev.ucp.shopping.checkout
+- dev.ucp.shopping.fulfillment
+- dev.ucp.shopping.discount
+- dev.ucp.shopping.order
+- dev.shopify.catalog
+tools:
+- name: search_catalog
+  description: Find products matching the buyer's intent.
+  source: https://www.vivoo.io/llms.txt
+- name: create_cart
+  description: Add desired items to a cart.
+  source: https://www.vivoo.io/llms.txt
+- name: create_checkout
+  description: Start the purchase flow.
+  source: https://www.vivoo.io/llms.txt
+- name: update_checkout
+  description: Set shipping address and fulfillment method.
+  source: https://www.vivoo.io/llms.txt
+- name: complete_checkout
+  description: Finalize the purchase (buyer must approve payment).
+  source: https://www.vivoo.io/llms.txt
+payment_handlers:
+- com.google.pay
+- dev.shopify.card
+- dev.shopify.shop_pay
