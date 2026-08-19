@@ -13,12 +13,10 @@ server:
   supported_versions:
   - '2026-04-08'
   - '2026-01-23'
-  note: >-
-    Hosted UCP shopping MCP server provided natively by Shopify. tools/list requires
-    a valid UCP agent profile URI (returns error -32001 invalid_profile_url without
-    one), so the tool surface below is transcribed from the merchant's published
-    llms.txt agent flow rather than a live tools/list enumeration. Checkout requires
-    contemporaneous human buyer approval; the endpoint is rate-limited per IP (429).
+  note: Hosted UCP shopping MCP server provided natively by Shopify. tools/list requires a valid UCP agent
+    profile URI (returns error -32001 invalid_profile_url without one), so the tool surface below is transcribed
+    from the merchant's published llms.txt agent flow rather than a live tools/list enumeration. Checkout
+    requires contemporaneous human buyer approval; the endpoint is rate-limited per IP (429).
 capabilities:
 - dev.ucp.shopping.catalog.search
 - dev.ucp.shopping.catalog.lookup
@@ -48,3 +46,11 @@ payment_handlers:
 - com.google.pay
 - dev.shopify.card
 - dev.shopify.shop_pay
+deployment:
+  mode: remote
+  endpoint: https://www.vivoo.io/api/ucp/mcp
+  verified: probed
+  probe: live
+  tools: 13
+  checked: '2026-08-12'
+  source: catalog MCP census
